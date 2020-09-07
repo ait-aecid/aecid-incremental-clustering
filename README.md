@@ -1,5 +1,11 @@
 # aecid-incremental-clustering
-An efficient method for clustering log data
+An efficient method for clustering log data.
+
+
+Please install the library editdistance before continuing. The aecid-incremental-clustering was tested with editdistance 0.3.1, but should work with other versions as well.
+```
+pip3 install editdistance
+```
 
 To get started, just clone this repository and execute
 ```
