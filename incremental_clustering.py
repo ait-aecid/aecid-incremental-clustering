@@ -148,9 +148,12 @@ print('{0} lines have been imported!'.format(line_id))
 cluster_dictionary = clustering(log_line_list, cluster_config.st)
 print('{0} clusters found!'.format(len(cluster_dictionary)))
 
+# Sort clusters by size in ascending order
+sorted_cluster_dictionary_keys = [elem for _, elem in sorted(zip([len(x.log_line_list) for x in cluster_dictionary.values()], list(cluster_dictionary.keys())))]
+
 # Write output
 with open(cluster_config.output_file, "w") as output:
-    for cluster in cluster_dictionary:
+    for cluster in sorted_cluster_dictionary_keys:
         text = "cluster representative: " + cluster_dictionary[cluster].cluster_representative + "\nsize: " + str(len(cluster_dictionary[cluster].log_line_list)) + "\n"
         output.write(text)
         if cluster_config.write_members is True:
