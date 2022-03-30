@@ -114,11 +114,6 @@ def clustering(log_line_list, st):
     return cluster_dictionary
 
 
-# The incremental clustering only works for ST higher than/equal to 0.5
-if cluster_config.st < 0.5:
-    st = 0.5
-    print('The similarity threshold has been set to 0.5, because the incremental clustering requires an threshold higher than or equal to 0.5.')
-
 # import log data and preprocess
 line_id = 0
 log_line_list = []
